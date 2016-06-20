@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Mobile Store</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/style.css" rel="stylesheet">
 
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -16,7 +16,13 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+<style>
+.input-append input
+{
+  height:30px;
+  padding-left:25px;
+}
+</style>
 
 </head>
 <body>
@@ -24,82 +30,62 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
+				<!--<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target=".navbar-collapse">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="~/"> Logo</a>
-				<div class="col-md-6 col-sm-8 col-xs-11 navbar-left">
-					<div class="navbar-form " role="search">
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>-->
+				<a href="index.jsp" class="navbar-brand"><img src="resources/images/logo.jpg" style="width: 200px; height: 40px;"></a>
+						
+				<!--<div class="col-md-3 navbar-right">
+					<div class="navbar-form" role="search">
 						<div class="input-group">
-							<input type="text" placeholder="Search" name="srch-term">
+							<input type="text" placeholder="Search" class="" name="srch-term" >
 							<div class="input-group-btn">
-								<button class="btn btn-info" value="Search" type="submit">Search</button>
+								<button class="btn btn-default" value="Search" type="submit">
+								<i class="glyphicon glyphicon-search"></i></button>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
+				<form class="navbar-form pull-right form-search">
+					<div class="input-append">
+       				 <input data-provide="typeahead" data-items="4"  type="text" 
+         			  class="span2 search-query">
+        		     <button class="btn">Search</button>
+    			     </div>
+ 				</form>
 			</div>
-
+			<br>
+			<br>
+			<br>
+			
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.jsp">Home</a></li>
+					<li class="active"><a href="index">Home</a></li>
 					<li><a href="about.jsp">About Us</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">Product <span class="caret"></span></a>
+						aria-expanded="false">Brands <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="android.jsp">Android</a></li>
-							<li><a href="ios.jsp">IOS</a></li>
-							<li><a href="windows.jsp">Windows</a></li>
+							<li><a href="samsung.jsp">Samsung</a></li>
+							<li><a href="apple.jsp">Apple</a></li>
+							<li><a href="htc.jsp">HTC</a></li>
+							<li><a href="sony.jsp">Sony</a></li>
+							
 						</ul></li>
 					<li><a href="service.jsp">Services</a></li>
 					<li><a href="contact.jsp">Contact Us</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="login.jsp">Login</a></li>
-					<li><a href="login.jsp">Register</a></li>
+					<li><a href="login">Login</a></li>
+					<li><a href="register">Register</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 
-
-	<!-- <div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="panel panel-default panel-screen">
-			<div class="panel-heading">Logo
-			<input type="text" value="" placeholder="Search" >Search
-			</div>
-			<div class="panel-body">
-			<nav class="navbar navbar-inverse navbar-static-top">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.jsp">Home</a></li>
-					<li><a href="about.jsp">About Us</a></li>
-
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">Product <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="android.jsp">Android</a></li>
-							<li><a href="ios.jsp">IOS</a></li>
-							<li><a href="windows.jsp">Windows</a></li>
-						</ul></li>
-					<li><a href="service.jsp">Services</a></li>
-					<li><a href="contact.jsp">Contact Us</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-					<li><a href="login.jsp">Login</a></li>
-					<li><a href="login.jsp">Register</a></li>
-				</ul>
-				</nav>
-			</div>
-		</div>
-	</div>
-	
-</div>-->
-	<div id="myCarousel" class="carousel slide" style="margin-top: -20px;">
+	<div id="myCarousel" class="carousel slide" >
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="1"></li>
@@ -111,20 +97,20 @@
 			<div class="item active">
 				<div class="fill">
 					<img src="resources/images/img1.jpg"
-						style="width: 100%; height: 400px;">
+						style="width: 100%; height: 500px;">
 				</div>
 			</div>
 			<div class="item">
 				<div class="fill">
 					<img src="resources/images/img2.jpg"
-						style="width: 100%; height: 400px;">
+						style="width: 100%; height: 500px;">
 				</div>
 			</div>
 
 			<div class="item">
 				<div class="fill">
 					<img src="resources/images/img3.jpg"
-						style="width: 100%; height: 400px;">
+						style="width: 100%; height: 500px;">
 				</div>
 			</div>
 
@@ -141,5 +127,27 @@
 
 	</div>
 
+	<div class="navbar navbar-inverse navbar-fixed-bottom">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index">Home</a></li>
+					<li><a href="about.jsp">About Us</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Brands <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="samsung.jsp">Samsung</a></li>
+							<li><a href="apple.jsp">Apple</a></li>
+							<li><a href="htc.jsp">HTC</a></li>
+							<li><a href="sony.jsp">Sony</a></li>
+							
+						</ul></li>
+					<li><a href="service.jsp">Services</a></li>
+					<li><a href="contact.jsp">Contact Us</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="login">Login</a></li>
+					<li><a href="register">Register</a></li>
+				</ul>
+			</div>
 </body>
 </html>

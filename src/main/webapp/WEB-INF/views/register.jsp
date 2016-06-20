@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Mobile Store</title>
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
 <script
@@ -76,11 +76,11 @@
 					Last Name<input type="text"  class="form-control"
 					placeholder="Last Name" value="" required autofocus> 
 					
-					Email Id<input type="text"  class="form-control"
-					placeholder="Email Id" value="" required autofocus> 
-
 					Contact no<input type="text"  class="form-control"
 					placeholder="Contact No" value="" required autofocus> 
+					
+					Email Id<input type="text"  class="form-control"
+					placeholder="Email Id" value="" required autofocus> 
 					
 					Password<input type="password"  class="form-control"
 					placeholder="Password" value="" required autofocus> 

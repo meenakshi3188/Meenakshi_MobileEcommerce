@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login</title>
+<title>Mobile Store</title>
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
 <script

@@ -1,4 +1,6 @@
+com\niit\mobilestoreapps\controller\RegisterController.class
 com\niit\mobilestoreapps\model\ProductBrand.class
 com\niit\mobilestoreapps\controller\HomeController.class
+com\niit\mobilestoreapps\controller\LoginController.class
 com\niit\mobilestoreapps\model\Product.class
 com\niit\mobilestoreapps\model\Profile.class
