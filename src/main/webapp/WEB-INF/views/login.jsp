@@ -47,15 +47,16 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="index">Home</a></li>
 					<li><a href="about.jsp">About Us</a></li>
-					<!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">Product <span class="caret"></span></a>
+						aria-expanded="false">Brands <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="android.jsp">Android</a></li>
-							<li><a href="ios.jsp">IOS</a></li>
-							<li><a href="windows.jsp">Windows</a></li>
-						</ul></li>-->
-						<li><a href="about.jsp">Brand</a></li>
+							<li><a href="samsung.jsp">Samsung</a></li>
+							<li><a href="apple.jsp">Apple</a></li>
+							<li><a href="htc.jsp">HTC</a></li>
+							<li><a href="sony.jsp">Sony</a></li>
+							
+						</ul></li>						<li><a href="about.jsp">Brand</a></li>
 					<li><a href="service.jsp">Services</a></li>
 					<li><a href="contact.jsp">Contact Us</a></li>
 				</ul>
