@@ -26,7 +26,7 @@ public class ProductBrand {
 	
 	public ProductBrand()
 	{
-		System.out.println("hi");
+		//System.out.println("hi");
 	}
 	
 	public ProductBrand(int brand_id, String brand_name) {	

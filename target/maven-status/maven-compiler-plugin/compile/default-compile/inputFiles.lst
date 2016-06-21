@@ -1,5 +1,10 @@
+C:\myworkspace\MobileStoreApps\src\main\java\com\niit\mobilestoreapps\controller\BrandController.java
 C:\myworkspace\MobileStoreApps\src\main\java\com\niit\mobilestoreapps\model\Product.java
+C:\myworkspace\MobileStoreApps\src\main\java\com\niit\mobilestoreapps\service\BrandServiceImpl.java
+C:\myworkspace\MobileStoreApps\src\main\java\com\niit\mobilestoreapps\dao\ProductBrandDAO.java
+C:\myworkspace\MobileStoreApps\src\main\java\com\niit\mobilestoreapps\service\BrandService.java
 C:\myworkspace\MobileStoreApps\src\main\java\com\niit\mobilestoreapps\controller\HomeController.java
+C:\myworkspace\MobileStoreApps\src\main\java\com\niit\mobilestoreapps\dao\ProductBrandImpl.java
 C:\myworkspace\MobileStoreApps\src\main\java\com\niit\mobilestoreapps\model\ProductBrand.java
 C:\myworkspace\MobileStoreApps\src\main\java\com\niit\mobilestoreapps\controller\LoginController.java
 C:\myworkspace\MobileStoreApps\src\main\java\com\niit\mobilestoreapps\controller\RegisterController.java
