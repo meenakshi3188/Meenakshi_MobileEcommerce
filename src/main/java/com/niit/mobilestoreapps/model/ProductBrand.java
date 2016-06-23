@@ -6,7 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.sun.istack.internal.NotNull;
 
@@ -20,7 +21,7 @@ public class ProductBrand {
 	private int brand_id;
 	
 	@Column(name="brand_name")
-	@NotNull
+	@NotEmpty(message="Brand name sholud not be blank")
 	private String brand_name;
 	
 	

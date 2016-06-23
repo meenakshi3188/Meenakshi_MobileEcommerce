@@ -8,5 +8,6 @@
 </head>
 <body>
 	<a href="BrandOpt">Show Brands</a>
+	<a href="addBrand">Add Brands</a>
 </body>
 </html>

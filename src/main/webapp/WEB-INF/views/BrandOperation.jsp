@@ -10,43 +10,46 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 <script>
 
       var myApp = angular.module('myApp', []);
 	  myApp.controller('MyController', function ($scope,$http){
         $http.get('BrandOpt').success(function(data) {
         $scope.brands = data;
-
         });
-
       });
-    </script>
+</script>
 </head>
 
-	<!-- Using AngularJS -->
-<body ng-app="myApp">
+<!-- Using AngularJS -->
+<body>
 
-	<div ng-controller="MyController">
-	
-	<table>
+
+
+	<!-- <div ng-app="myApp" ng-controller="MyController">
+		<table>
 			<tr>
-				<th>Brand Id</th> 
-				<th>Brand Name</th> 	
+				<th>Brand Id</th>
+				<th>Brand Name</th>
 			</tr>
+			
 			<tr ng-repeat="brnd in brands">
-				<td>{{brnd.brand_id}}</td> 
-				<td>{{brnd.brand_name}}</td> 
-				
+				<td>{{brnd.brand_id}}1</td>
+				<td>{{brnd.brand_name}}</td>
 			</tr>
 		</table>
-		</div>
-		
-</body>
+	</div>-->
 
-	<!-- Using Spring Form -->
-	<!--<form:form action="BrandOpt">
+
+<div class="container">
+		
+					
+ 	
+	
+</div>
+<!-- Using Spring Form -->
+<!-- <form:form action="BrandOpt">
 		<table>
 			<tr>
 				<th>Brand Id</th>
@@ -62,5 +65,5 @@
 				</c:forEach>
 				</table>
 				</form:form>-->
-
+</body>
 </html>

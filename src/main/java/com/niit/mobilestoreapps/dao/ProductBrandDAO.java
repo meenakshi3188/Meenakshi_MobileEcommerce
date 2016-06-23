@@ -9,4 +9,5 @@ public interface ProductBrandDAO
 	public List<ProductBrand> showBrand();
 	public ProductBrand getNameById(int id); 
 	public void savebrand(ProductBrand obj);	
+	public void updateBrand(ProductBrand p);
 }

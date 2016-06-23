@@ -29,7 +29,11 @@ public class BrandServiceImpl implements BrandService
 	@Transactional
 	public void savebrand(ProductBrand obj) {
 		pbDao.savebrand(obj);
-		
+	}
+
+	@Override
+	public void updateBrand(ProductBrand p) {
+		pbDao.updateBrand(p);
 	}
 	
 }
