@@ -16,7 +16,8 @@
       var myApp = angular.module('myApp', []);
 	  myApp.controller('MyController', function ($scope,$http){
         $http.get('BrandOpt').success(function(data) {
-        $scope.brands = data;
+        $scope.brands1 = data;
+        alert(data);
         });
       });
 </script>
@@ -25,29 +26,21 @@
 <!-- Using AngularJS -->
 <body>
 
-
-
-	<!-- <div ng-app="myApp" ng-controller="MyController">
+	<div ng-app="myApp" ng-controller="MyController">
 		<table>
 			<tr>
 				<th>Brand Id</th>
 				<th>Brand Name</th>
 			</tr>
-			
-			<tr ng-repeat="brnd in brands">
-				<td>{{brnd.brand_id}}1</td>
-				<td>{{brnd.brand_name}}</td>
+			<tr ng-repeat="brnd in brands1">
+				<td>{{brnd.brand_id}}</td>
+				<td>{{brnd.brand_name}}1</td>
 			</tr>
 		</table>
-	</div>-->
+	</div>
 
 
-<div class="container">
-		
-					
- 	
-	
-</div>
+
 <!-- Using Spring Form -->
 <!-- <form:form action="BrandOpt">
 		<table>

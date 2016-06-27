@@ -10,4 +10,5 @@ public interface ProductBrandDAO
 	public ProductBrand getNameById(int id); 
 	public void savebrand(ProductBrand obj);	
 	public void updateBrand(ProductBrand p);
+	public void delete(int id);
 }

@@ -10,12 +10,11 @@ import com.niit.mobilestoreapps.dao.ProductBrandDAO;
 import com.niit.mobilestoreapps.model.ProductBrand;
 
 @Service
-@Transactional
 public class BrandServiceImpl implements BrandService
 {
 	@Autowired
 	ProductBrandDAO pbDao;
-	
+
 	@Transactional
 	public List<ProductBrand> showBrand() {
 		return pbDao.showBrand();
@@ -31,9 +30,14 @@ public class BrandServiceImpl implements BrandService
 		pbDao.savebrand(obj);
 	}
 
-	@Override
+	@Transactional
 	public void updateBrand(ProductBrand p) {
 		pbDao.updateBrand(p);
+	}
+
+	@Transactional
+	public void delete(int id) {
+		pbDao.delete(id);
 	}
 	
 }
