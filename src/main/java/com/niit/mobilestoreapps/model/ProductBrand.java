@@ -21,9 +21,8 @@ public class ProductBrand {
 	private int brand_id;
 	
 	@Column(name="brand_name")
-	@NotEmpty(message="Brand name sholud not be blank")
+	@NotEmpty(message="Brand name should not be blank")
 	private String brand_name;
-	
 	
 	public ProductBrand()
 	{

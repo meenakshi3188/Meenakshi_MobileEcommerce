@@ -9,5 +9,7 @@
 <body>
 	<a href="BrandOpt">Show Brands</a>
 	<a href="addBrand">Add Brands</a>
+	<a href="product">Product</a>
+	<a href="supplier">Supplier</a>
 </body>
 </html>

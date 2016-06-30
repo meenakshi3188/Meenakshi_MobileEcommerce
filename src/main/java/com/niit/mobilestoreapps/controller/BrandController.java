@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.niit.mobilestoreapps.dao.ProductBrandDAO;
 import com.niit.mobilestoreapps.model.ProductBrand;
 import com.niit.mobilestoreapps.service.BrandService;
 
@@ -27,7 +25,7 @@ public class BrandController {
 	@RequestMapping(value = "/BrandOpt")
 	public ModelAndView getBrandOperation(){
 		ModelAndView mv=new ModelAndView("BrandOperation");
-		System.out.println("In controler");
+		//System.out.println("In controller");
 		List<ProductBrand> lsts = brndSrv.showBrand();
 		mv.addObject("brands", lsts);
 		return mv;

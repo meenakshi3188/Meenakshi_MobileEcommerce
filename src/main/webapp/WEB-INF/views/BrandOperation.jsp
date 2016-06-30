@@ -39,8 +39,6 @@
 		</table>
 	</div>
 
-
-
 <!-- Using Spring Form -->
 <!-- <form:form action="BrandOpt">
 		<table>
