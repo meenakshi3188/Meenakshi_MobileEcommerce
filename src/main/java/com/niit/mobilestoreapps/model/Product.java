@@ -30,7 +30,6 @@ import org.springframework.web.multipart.MultipartFile;
 		@Column(name="supp_id")
 		private int supp_id;
 		
-		
 		@Column(name="product_name")
 		private String product_name;
 		
@@ -173,32 +172,23 @@ import org.springframework.web.multipart.MultipartFile;
 		}
 		public String getFilePath(String path1,String contextPath)
 		{
-			String fileName=null;
-			//System.out.println(path1);
-			//System.out.println(contextPath);
-			System.out.println(prod_file);
+			String fileName;
+			
 			if(!prod_file.isEmpty())
 			{
 				try
 				{
-					//System.out.println("hellloooo");
 					fileName=prod_file.getOriginalFilename();
-					System.out.println("file= " +fileName);
 					
 					byte[] bytes=prod_file.getBytes();
 					
 					String npath=path1+"\\resources\\"+fileName;
-					System.out.println("npath"+npath);
-					
+				
 					BufferedOutputStream buffStream=new BufferedOutputStream(new FileOutputStream(new File(npath)));
-					System.out.println(buffStream.toString());
-					System.out.println("1");
-					buffStream.write(bytes);
-					System.out.println("2");
+					
+					buffStream.write(bytes);	
 					buffStream.close();
-					System.out.println("3");
-					String dbfilename=contextPath+"/resources"+fileName;
-					System.out.println("db "+dbfilename);
+					String dbfilename=contextPath+"/resources/"+fileName;
 					setProd_image(dbfilename);
 					
 					return dbfilename;

@@ -28,15 +28,15 @@
 		<table align="center">
 			<tr>
 				<td>Product Model</td>
-				<td><input type="text" name="prod_model" /></td>
+				<td><input type="text" name="product_model" /></td>
 			</tr>
 			<tr>
 				<td>Product Name</td>
-				<td><input type="text" name="prod_name" /></td>
+				<td><input type="text" name="product_name" /></td>
 			</tr>
 			<tr>
 				<td>Product Brand</td>
-				<td><select name="item">
+				<td><select name="brand_id">
 						<c:forEach items="${brands}" var="id">
     					<option value="${id.brand_id}">${id.brand_name}</option>
 						</c:forEach>
@@ -45,23 +45,23 @@
 			</tr>
 			<tr>
 				<td>Product Description1</td>
-				<td><textarea name="prod_desc1"></textarea></td>
+				<td><textarea name="product_description1"></textarea></td>
 			</tr>
 			<tr>
 				<td>Product Description2</td>
-				<td><textarea name="prod_desc2"></textarea></td>
+				<td><textarea name="product_description1"></textarea></td>
 			</tr>
 			<tr>
 				<td>Product Price</td>
-				<td><input type="text" name="prod_price" /></td>
+				<td><input type="text" name="product_price" /></td>
 			</tr>
 			<tr>
 				<td>Product Discount</td>
-				<td><input type="text" name="prod_discount" /></td>
+				<td><input type="text" name="product_discount" /></td>
 			</tr>
 			<tr>
 				<td>Product Supplier</td>
-				<td><select name="item">
+				<td><select name="supp_id">
 						<c:forEach items="${supplier}" var="id">
     					<option value="${id.supp_id}">${id.supp_name}</option>
 						</c:forEach>

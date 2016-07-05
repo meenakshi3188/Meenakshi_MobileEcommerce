@@ -27,6 +27,7 @@ public class ProductServiceImpl implements ProductService{
 
 	@Transactional
 	public void saveOrUpdate(Product p) {
+		//System.out.println("in service impl");
 		pdao.saveOrUpdate(p);
 		
 	}

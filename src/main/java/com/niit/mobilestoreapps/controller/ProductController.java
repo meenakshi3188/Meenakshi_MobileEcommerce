@@ -55,27 +55,29 @@ public class ProductController {
 	@RequestMapping(value= "/saveproduct", method = RequestMethod.POST)
 	public ModelAndView savebrand(@Valid @ModelAttribute("save_product")Product p,BindingResult result){
 		ModelAndView mv;
-		/* if (result.hasErrors()) {
+		 
+		 if (result.hasErrors()) {
              return new ModelAndView("Product");
-		 } else {*/
+		 } else {
 			
              String path = srv.getRealPath("/");
-             System.out.println("path=" + path);
+             //System.out.println("path=" + path);
              String res = p.getFilePath(path, srv.getContextPath());
-             System.out.println("res="+res);
+            // System.out.println("res="+res);
              if (res == "fail")
              {
                  return new ModelAndView("Product");
              }
              else {
-            	 System.out.println("welcome");
+            	 
             	 prod_srv.saveOrUpdate(p);
+            	 
                 // List<Product> lsts = prod_srv.showProduct();
                  //return new ModelAndView("ProductLists", "prdList", lsts);
             	 mv = new ModelAndView("index");
             	 return mv;
              }
-		 //}
+		 }
 		
 		}
 	

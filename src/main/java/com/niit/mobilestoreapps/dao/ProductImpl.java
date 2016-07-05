@@ -22,14 +22,14 @@ public class ProductImpl implements ProductDAO{
 
 	@Override
 	public Product getNameById(int id) {
-		
 		return (Product) sessionFactory.getCurrentSession().get(Product.class, id);
 	}
 
 	@Override
 	public void saveOrUpdate(Product p) {
+		//System.out.println("in product impl");
+		//System.out.println(p.getProd_image());
 		sessionFactory.getCurrentSession().saveOrUpdate(p);
-		
 	}
 
 	@Override
