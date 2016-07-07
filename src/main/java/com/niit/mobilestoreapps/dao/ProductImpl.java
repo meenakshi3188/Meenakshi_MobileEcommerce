@@ -28,7 +28,7 @@ public class ProductImpl implements ProductDAO{
 	@Override
 	public void saveOrUpdate(Product p) {
 		//System.out.println("in product impl");
-		//System.out.println(p.getProd_image());
+		//System.out.println(p.getProduct_image());
 		sessionFactory.getCurrentSession().saveOrUpdate(p);
 	}
 

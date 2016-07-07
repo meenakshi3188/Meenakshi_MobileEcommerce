@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.niit.mobilestoreapps.model.ProductBrand;
 
+
 public interface ProductBrandDAO
 {
 	public List<ProductBrand> showBrand();
@@ -11,4 +12,5 @@ public interface ProductBrandDAO
 	public void savebrand(ProductBrand obj);	
 	public void updateBrand(ProductBrand p);
 	public void delete(int id);
+	
 }

@@ -6,8 +6,10 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,12 +39,17 @@ public class ProductController {
 	SupplierService suppSrv;
 	
 	@RequestMapping(value = "/product")
-	public ModelAndView product(){
+	public ModelAndView product(Model model){
+		
 		ModelAndView mv=new ModelAndView("Product");
 		List<ProductBrand> lsts = brndSrv.showBrand();
 		List<Supplier> lsts1 = suppSrv.showSupplier();
+		List<Product> lsts2 = prod_srv.showProduct();
 		mv.addObject("brands", lsts);
-		mv.addObject("supplier", lsts1);
+		mv.addObject("supplier", lsts1);	
+        mv.addObject("ProductLists", lsts2);
+        model.addAttribute("brands1", new ProductBrand());
+       
 		return mv;
 	}
 	
@@ -54,31 +61,47 @@ public class ProductController {
 	
 	@RequestMapping(value= "/saveproduct", method = RequestMethod.POST)
 	public ModelAndView savebrand(@Valid @ModelAttribute("save_product")Product p,BindingResult result){
-		ModelAndView mv;
-		 
-		 if (result.hasErrors()) {
-             return new ModelAndView("Product");
-		 } else {
+		ModelAndView mv =new ModelAndView("Product");
+	   	System.out.println("in controller");
+	   	//System.out.println("result" + result.hasErrors());
+		/* if (result.hasErrors()) {
+			 System.out.println("in error");
+             return mv;
+		 } else {*/
 			
              String path = srv.getRealPath("/");
-             //System.out.println("path=" + path);
              String res = p.getFilePath(path, srv.getContextPath());
-            // System.out.println("res="+res);
+             System.out.println(res);
              if (res == "fail")
              {
-                 return new ModelAndView("Product");
+                 return mv;
              }
              else {
-            	 
-            	 prod_srv.saveOrUpdate(p);
-            	 
-                // List<Product> lsts = prod_srv.showProduct();
-                 //return new ModelAndView("ProductLists", "prdList", lsts);
-            	 mv = new ModelAndView("index");
-            	 return mv;
+            	System.out.println("testststs");
+        		prod_srv.saveOrUpdate(p);
+            	mv = new ModelAndView("index");
+            	return mv;
              }
-		 }
+		// }
 		
 		}
+	
+	@RequestMapping(value="/editProduct/{id}")
+	 public ModelAndView updateProduct(@PathVariable("id") int id){
+		ModelAndView mv=new ModelAndView("Product") ;
+		Product obj = prod_srv.getNameById(id);
+		mv.addObject("productDetail", obj);
+	    return mv;
+	 }
+	
+	@RequestMapping(value="/delProduct/{id}")
+	 public ModelAndView deleteProduct(@PathVariable("id") int id)
+	  {
+		   ModelAndView mv=new ModelAndView("Product");
+		   prod_srv.delete(id);
+		   List<Product> lsts = prod_srv.showProduct();
+		   mv.addObject("ProductLists", lsts);
+		   return mv;
+	  }
 	
 }

@@ -9,13 +9,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.web.multipart.MultipartFile;
 
 
-@Entity
+	@Entity
 	@Table(name="Product")
 	public class Product {
 		
@@ -51,16 +52,13 @@ import org.springframework.web.multipart.MultipartFile;
 		@Column(name="product_flag")
 		private boolean product_flag;
 
-		
 		@Column(name="product_image")
-		private String prod_image;
+		private String product_image;
+		
 		
 		transient private MultipartFile prod_file;
 		
-		public Product()
-		{
-			
-		}
+		public Product(){}
 		
 		public int getProduct_id() {
 			return product_id;
@@ -140,13 +138,12 @@ import org.springframework.web.multipart.MultipartFile;
 			this.product_flag = product_flag;
 		}
 
-
-		public String getProd_image() {
-			return prod_image;
+		public String getProduct_image() {
+			return product_image;
 		}
 
-		public void setProd_image(String prod_image) {
-			this.prod_image = prod_image;
+		public void setProduct_image(String product_image) {
+			this.product_image = product_image;
 		}
 
 		public MultipartFile getProd_file() {
@@ -156,20 +153,7 @@ import org.springframework.web.multipart.MultipartFile;
 		public void setProd_file(MultipartFile prod_file) {
 			this.prod_file = prod_file;
 		}
-		public Product(int product_id, int brand_id, String product_name, String product_description1,
-				String product_description2, String product_model, double product_price, double product_discount,
-				boolean product_flag) {
-			super();
-			this.product_id = product_id;
-			this.brand_id = brand_id;
-			this.product_name = product_name;
-			this.product_description1 = product_description1;
-			this.product_description2 = product_description2;
-			this.product_model = product_model;
-			this.product_price = product_price;
-			this.product_discount = product_discount;
-			this.product_flag = product_flag;
-		}
+		
 		public String getFilePath(String path1,String contextPath)
 		{
 			String fileName;
@@ -183,14 +167,13 @@ import org.springframework.web.multipart.MultipartFile;
 					byte[] bytes=prod_file.getBytes();
 					
 					String npath=path1+"\\resources\\"+fileName;
-				
+					System.out.println("npath " + npath);
 					BufferedOutputStream buffStream=new BufferedOutputStream(new FileOutputStream(new File(npath)));
-					
 					buffStream.write(bytes);	
 					buffStream.close();
 					String dbfilename=contextPath+"/resources/"+fileName;
-					setProd_image(dbfilename);
-					
+					setProduct_image(dbfilename);
+					System.out.println(dbfilename);
 					return dbfilename;
 				}
 				catch(Exception e)
@@ -205,4 +188,6 @@ import org.springframework.web.multipart.MultipartFile;
 				return "fail";
 			}
 		}
+		
+		
 }
