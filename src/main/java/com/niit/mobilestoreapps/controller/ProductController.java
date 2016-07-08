@@ -64,7 +64,7 @@ public class ProductController {
 		ModelAndView mv =new ModelAndView("Product");
 	   	System.out.println("in controller");
 	   	//System.out.println("result" + result.hasErrors());
-		/* if (result.hasErrors()) {
+		/*if (result.hasErrors()) {
 			 System.out.println("in error");
              return mv;
 		 } else {*/
@@ -82,7 +82,7 @@ public class ProductController {
             	mv = new ModelAndView("index");
             	return mv;
              }
-		// }
+		//}
 		
 		}
 	

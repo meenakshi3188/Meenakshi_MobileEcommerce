@@ -88,7 +88,7 @@
 
 	</form:form>
 <br>
-<c:if test="${empty productDetail.getProduct_name()}">
+<c:if test="${!empty productDetail.getProduct_name()}">
 <table class="table table-bordered" style="width: 66%;" align="center">
 		<tr style="background-color: #BDC3C7;">
 			<th>Product Id</th>

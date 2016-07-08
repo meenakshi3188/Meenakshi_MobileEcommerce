@@ -157,23 +157,26 @@ import org.springframework.web.multipart.MultipartFile;
 		public String getFilePath(String path1,String contextPath)
 		{
 			String fileName;
-			
+			//System.out.println("prod file" + prod_file);
 			if(!prod_file.isEmpty())
 			{
 				try
 				{
 					fileName=prod_file.getOriginalFilename();
-					
+					//System.out.println(fileName);
 					byte[] bytes=prod_file.getBytes();
 					
 					String npath=path1+"\\resources\\"+fileName;
 					System.out.println("npath " + npath);
 					BufferedOutputStream buffStream=new BufferedOutputStream(new FileOutputStream(new File(npath)));
+					System.out.println("1");
 					buffStream.write(bytes);	
 					buffStream.close();
 					String dbfilename=contextPath+"/resources/"+fileName;
 					setProduct_image(dbfilename);
-					System.out.println(dbfilename);
+
+					System.out.println("dbfilename" + dbfilename);
+					
 					return dbfilename;
 				}
 				catch(Exception e)

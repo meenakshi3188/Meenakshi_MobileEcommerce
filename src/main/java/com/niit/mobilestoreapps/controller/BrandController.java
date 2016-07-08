@@ -22,6 +22,15 @@ public class BrandController {
 	@Autowired
 	BrandService brndSrv;
 	
+	@RequestMapping(value = "/onLoad",method=RequestMethod.GET)
+	public ModelAndView listBrands(){
+		ModelAndView mv=new ModelAndView("index");
+		List<ProductBrand> lsts = brndSrv.showBrand();
+		mv.addObject("brandsLst", lsts);
+		//System.out.println(lsts);
+		return mv;
+	}
+	
 	@RequestMapping(value = "/BrandOpt")
 	public ModelAndView getBrandOperation(){
 		ModelAndView mv=new ModelAndView("BrandOperation");
