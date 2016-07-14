@@ -15,21 +15,19 @@ import org.springframework.web.servlet.ModelAndView;
 import com.niit.mobilestoreapps.model.ProductBrand;
 import com.niit.mobilestoreapps.service.BrandService;
 
-
 @Controller
 public class BrandController {
 
 	@Autowired
 	BrandService brndSrv;
 	
-	@RequestMapping(value = "/onLoad",method=RequestMethod.GET)
+	/*@RequestMapping(value = "/onLoad1",method=RequestMethod.GET)
 	public ModelAndView listBrands(){
 		ModelAndView mv=new ModelAndView("index");
-		List<ProductBrand> lsts = brndSrv.showBrand();
-		mv.addObject("brandsLst", lsts);
-		//System.out.println(lsts);
+		List<ProductBrand> lsts1 = brndSrv.showBrand();
+		mv.addObject("brandsLst1", lsts1);
 		return mv;
-	}
+	}*/
 	
 	@RequestMapping(value = "/BrandOpt")
 	public ModelAndView getBrandOperation(){

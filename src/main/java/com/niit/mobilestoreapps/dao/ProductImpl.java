@@ -37,4 +37,6 @@ public class ProductImpl implements ProductDAO{
 		sessionFactory.getCurrentSession().delete(id);
 	}
 
+	
+
 }

@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -166,16 +164,16 @@ import org.springframework.web.multipart.MultipartFile;
 					//System.out.println(fileName);
 					byte[] bytes=prod_file.getBytes();
 					
-					String npath=path1+"\\resources\\"+fileName;
-					System.out.println("npath " + npath);
+					String npath=path1+"\\WEB-INF\\resources\\"+fileName;
+					//System.out.println("npath " + npath);
 					BufferedOutputStream buffStream=new BufferedOutputStream(new FileOutputStream(new File(npath)));
-					System.out.println("1");
+					//System.out.println("1");
 					buffStream.write(bytes);	
 					buffStream.close();
 					String dbfilename=contextPath+"/resources/"+fileName;
 					setProduct_image(dbfilename);
 
-					System.out.println("dbfilename" + dbfilename);
+					//System.out.println("dbfilename" + dbfilename);
 					
 					return dbfilename;
 				}

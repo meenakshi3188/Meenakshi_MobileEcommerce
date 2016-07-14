@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,7 +50,6 @@ public class ProductController {
 		mv.addObject("supplier", lsts1);	
         mv.addObject("ProductLists", lsts2);
         model.addAttribute("brands1", new ProductBrand());
-       
 		return mv;
 	}
 	
@@ -64,25 +64,28 @@ public class ProductController {
 		ModelAndView mv =new ModelAndView("Product");
 	   	System.out.println("in controller");
 	   	//System.out.println("result" + result.hasErrors());
-		/*if (result.hasErrors()) {
+	     /*for(@SuppressWarnings("unused") ObjectError lst : result.getAllErrors()){
+	    	 System.out.println(lst.toString());
+	     }*/
+		if (result.hasErrors()) {
 			 System.out.println("in error");
              return mv;
-		 } else {*/
+		 } else {
 			
              String path = srv.getRealPath("/");
              String res = p.getFilePath(path, srv.getContextPath());
-             System.out.println(res);
+      
              if (res == "fail")
              {
                  return mv;
              }
              else {
-            	System.out.println("testststs");
+            	System.out.println("testsstst");
         		prod_srv.saveOrUpdate(p);
             	mv = new ModelAndView("index");
             	return mv;
              }
-		//}
+		 }
 		
 		}
 	
@@ -91,6 +94,10 @@ public class ProductController {
 		ModelAndView mv=new ModelAndView("Product") ;
 		Product obj = prod_srv.getNameById(id);
 		mv.addObject("productDetail", obj);
+		List<ProductBrand> lsts = brndSrv.showBrand();
+		mv.addObject("brands", lsts);
+		List<Supplier> lsts1 = suppSrv.showSupplier();
+		mv.addObject("supplier", lsts1);
 	    return mv;
 	 }
 	

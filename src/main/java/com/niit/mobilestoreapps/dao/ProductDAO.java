@@ -10,6 +10,4 @@ public interface ProductDAO {
 	public void saveOrUpdate(Product p);
 	public void delete(int id);
 	
-	
-	
 }
