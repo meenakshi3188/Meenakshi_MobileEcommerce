@@ -29,7 +29,8 @@
 		<table align="center">
 			<tr>
 				<td>Product Model</td>
-				<td><input type="text" name="product_model"
+				<td><input type="hidden" name="product_id"
+						value="${productDetail.getProduct_id()}" /><input type="text" name="product_model"
 					value="${productDetail.getProduct_model()}" /></td>
 			</tr>
 			<tr>
@@ -121,11 +122,11 @@
 				<th>Product Id</th>
 				<th>Product Model</th>
 				<th>Product Name</th>
-				<th>Product Brand</th>
+			<!-- <th>Product Brand</th>-->
 				<th>Product Description1</th>
 				<th>Product Description2</th>
 				<th>Product Price</th>
-				<th>Product Supplier</th>
+				<!-- <th>Product Supplier</th>-->
 				<th>Product Image</th>
 				<th>Operation</th>
 				<th>Operation</th>
@@ -136,12 +137,12 @@
 					<td>${prd.product_model}</td>
 					<td>${prd.product_name}</td>
 
-					<td>${prd.product_name}</td>
+					<!-- <td>${prd.product_name}</td>-->
 
 					<td>${prd.product_description1}</td>
 					<td>${prd.product_description2}</td>
 					<td>${prd.product_price}</td>
-					<td>${prd.product_price}</td>
+				<!-- <td>${prd.product_price}</td>-->
 					<td><img src="${prd.product_image}"></td>
 					<td><a href="<c:url value='/editProduct/${prd.product_id}' />">Edit</a></td>
 					<td><a href="<c:url value='/delProduct/${prd.product_id}' />">Delete</a></td>

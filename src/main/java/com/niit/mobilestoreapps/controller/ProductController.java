@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,10 +67,10 @@ public class ProductController {
 	     /*for(@SuppressWarnings("unused") ObjectError lst : result.getAllErrors()){
 	    	 System.out.println(lst.toString());
 	     }*/
-		if (result.hasErrors()) {
+		/*if (result.hasErrors()) {
 			 System.out.println("in error");
              return mv;
-		 } else {
+		 } else {*/
 			
              String path = srv.getRealPath("/");
              String res = p.getFilePath(path, srv.getContextPath());
@@ -80,12 +80,22 @@ public class ProductController {
                  return mv;
              }
              else {
-            	System.out.println("testsstst");
-        		prod_srv.saveOrUpdate(p);
+            	 System.out.println("else");
+            	 System.out.println(p.getProduct_id());
+            	if(p.getProduct_id()==0)
+         		{
+            		 prod_srv.saveOrUpdate(p);
+            		System.out.println("iff");
+         		}
+         		else
+         		{
+         			System.out.println("elseee");
+         			prod_srv.updateProduct(p);
+         		} 
             	mv = new ModelAndView("index");
             	return mv;
              }
-		 }
+		// }
 		
 		}
 	

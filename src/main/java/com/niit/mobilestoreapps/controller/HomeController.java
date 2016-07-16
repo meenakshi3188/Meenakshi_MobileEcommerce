@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.mobilestoreapps.dao.ProductDAO;
 import com.niit.mobilestoreapps.model.Product;
 import com.niit.mobilestoreapps.model.ProductBrand;
 import com.niit.mobilestoreapps.service.BrandService;
@@ -20,16 +21,20 @@ public class HomeController {
 	@Autowired
 	ProductService prod_srv;
 	
+	@Autowired
+	ProductDAO pdao;
+	
 	@RequestMapping("/")
 	public ModelAndView StartPage(){
 		//System.out.println("In Controller");
 		ModelAndView mv=new ModelAndView("index");
 		List<ProductBrand> lsts1 = brndSrv.showBrand();
 		mv.addObject("brandsLst1", lsts1);
-		List<Product> lsts2 = prod_srv.showProduct();
-		mv.addObject("ProductLists", lsts2);
+		List<Product> lst=prod_srv.showProduct();
+		mv.addObject("prdLst", lst);
 		return mv;
 		
 	}
+	
 	
 }

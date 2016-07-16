@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.mobilestoreapps.model.Product;
+
+
 @Repository
 public class ProductImpl implements ProductDAO{
 	
@@ -34,9 +36,21 @@ public class ProductImpl implements ProductDAO{
 
 	@Override
 	public void delete(int id) {
-		sessionFactory.getCurrentSession().delete(id);
+		//sessionFactory.getCurrentSession().delete(id);
+		sessionFactory.getCurrentSession().createQuery("delete from Product where product_id = " + id).executeUpdate();
 	}
 
-	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> getProductByBrandId(int id) {
+		System.out.println(id);
+		List<Product> dbset = sessionFactory.getCurrentSession().createQuery("from Product where brand_id = " + id).list();	
+		return dbset;
+	}
 
+	@Override
+	public void updateProduct(Product prd) {
+		sessionFactory.getCurrentSession().update(prd);
+		
+	}
 }

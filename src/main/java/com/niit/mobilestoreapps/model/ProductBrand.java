@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.sun.istack.internal.NotNull;
+
 
 @Entity
 @Table(name="ProductBrand")

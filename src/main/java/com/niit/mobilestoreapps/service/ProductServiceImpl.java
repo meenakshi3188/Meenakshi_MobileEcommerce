@@ -37,6 +37,17 @@ public class ProductServiceImpl implements ProductService{
 		pdao.delete(id);
 		
 	}
+
+	@Transactional
+	public List<Product> getProductByBrandId(int id) {
+		return pdao.getProductByBrandId(id);
+	}
+
+	@Transactional
+	public void updateProduct(Product prd) {
+		pdao.updateProduct(prd);
+		
+	}
 	
 
 }

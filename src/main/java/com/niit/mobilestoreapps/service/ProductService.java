@@ -10,5 +10,6 @@ public interface ProductService {
 	public Product getNameById(int id); 
 	public void saveOrUpdate(Product p);
 	public void delete(int id);
-
+	public List<Product> getProductByBrandId(int id);
+	public void updateProduct(Product prd);
 }

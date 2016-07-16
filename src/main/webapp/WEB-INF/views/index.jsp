@@ -3,6 +3,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page
+	import="java.util.List,org.springframework.beans.factory.annotation.Autowired,
+	com.niit.mobilestoreapps.dao.ProductImpl,com.niit.mobilestoreapps.service.ProductService,
+	com.niit.mobilestoreapps.model.Product"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -72,6 +76,9 @@
 </style>
 </head>
 <body>
+	<%!
+ProductImpl prod_srv = new ProductImpl();
+%>
 	<br>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
@@ -115,24 +122,20 @@
 								<c:forEach items="${brandsLst1}" var="id">
 									<li>${id.brand_name}</li>
 								</c:forEach>--> <!-- <li><a href="htc.jsp">HTC</a></li>
-								<li><a href="sony.jsp">Sony</a></li>--> <!--<li><a href="apple.jsp">Apple</a></li>
-								<li><a href="htc.jsp">HTC</a></li>
-								<li><a href="sony.jsp">Sony</a></li>
-
-							</ul>-->
+							</ul>--> <!-- For display product sub menu -->
 
 						<ul class="dropdown-menu multi-level" role="menu">
 							<c:forEach items="${brandsLst1}" var="id">
 								<li class="dropdown-submenu"><a href="#">${id.brand_name}</a>
 									<ul class="dropdown-menu">
-										<c:forEach items="${ProductLists}" var="prd">
-											<li><a href="#">${prd.product_name}</a></li>
+										<c:forEach items="${prdLst}" var="prd">
+											<c:if test="${id.brand_id==prd.brand_id}">
+												<li><a href="#">${prd.product_name}</a></li>
+											</c:if>
 										</c:forEach>
-									</ul>
-								</li>
+									</ul></li>
 							</c:forEach>
 						</ul>
-						
 					<li><a href="service.jsp">Services</a></li>
 					<li><a href="contact.jsp">Contact Us</a></li>
 				</ul>
@@ -191,8 +194,28 @@
 	<a href="addBrand">Add Brands</a>
 	<a href="product">Product</a>
 	<a href="supplier">Supplier</a>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-sm-2">
+			<a href="#">All Brands</a><br>
+			<c:forEach items="${brandsLst1}" var="id">
+				<a href="#">${id.brand_name}</a>
+				<br>
+			</c:forEach>
+		</div>
 
+		<div class="col-sm-10">
+			<c:forEach items="${prdLst}" var="prd">
+				<img src="${prd.product_image}" width="120px" height="150px"/>
+				${prd.product_model}
+				${prd.product_name}
+				Rs ${prd.product_price}
+				<button type="button" class="btn btn-primary btn-xs">Add Cart</button>
+			</c:forEach>
+		</div>
 
+	</div>
 
 	<!--  <div class="navbar navbar-inverse navbar-fixed-bottom">
 		<ul class="nav navbar-nav">
