@@ -27,7 +27,7 @@
 					<span class="icon-bar"></span>
 					 <span class="icon-bar"></span>
 				</button>
-				<a href="" class="navbar-brand"><img src="resources/images/logo.jpg" style="width: 300px; height: 50px;"></a>
+				<a href="" class="navbar-brand"><img src="resources/images/logo.jpg" style="width: 300px; height: 30px;"></a>
 						
 				<div class="col-md-2 col-sm-6 col-xs-7 navbar-right">
 					<div class="navbar-form" role="search">
@@ -67,6 +67,7 @@
 			</div>
 		</div>
 	</div>
+	<br><br><br><br><br>
 <div class="container">
 		<div class="card card-container">
 			<h2>Login</h2>

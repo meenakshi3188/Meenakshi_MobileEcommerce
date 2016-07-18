@@ -77,7 +77,7 @@
 </head>
 <body>
 	<%!
-ProductImpl prod_srv = new ProductImpl();
+//ProductImpl prod_srv = new ProductImpl();
 %>
 	<br>
 	<div class="navbar navbar-inverse navbar-fixed-top">

@@ -24,6 +24,8 @@ import com.niit.mobilestoreapps.service.ProductService;
 import com.niit.mobilestoreapps.service.SupplierService;
 
 
+
+
 @Controller
 public class ProductController {
 	

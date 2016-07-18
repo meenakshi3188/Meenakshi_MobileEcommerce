@@ -69,21 +69,21 @@
 	<div class="container">
 		<div class="card card-container">
 			<h2>Register</h2>
-			<form  action="register" method="post">
+			<form  action="${pageContext.request.contextPath}/registerUser" method="post">
 				First Name<input type="text"  class="form-control"
-					placeholder="First Name" value="" required autofocus> 
+					placeholder="First Name" name="firstname" value="" required autofocus> 
 					
 					Last Name<input type="text"  class="form-control"
-					placeholder="Last Name" value="" required autofocus> 
+					placeholder="Last Name" name="lastname" value="" required autofocus> 
 					
 					Contact no<input type="text"  class="form-control"
-					placeholder="Contact No" value="" required autofocus> 
+					placeholder="Contact No" name="contactNo" value="" required autofocus> 
 					
 					Email Id<input type="text"  class="form-control"
-					placeholder="Email Id" value="" required autofocus> 
+					placeholder="Email Id" value="" name="emailId" required autofocus> 
 					
 					Password<input type="password"  class="form-control"
-					placeholder="Password" value="" required autofocus> 
+					placeholder="Password" value="" name="password" required autofocus> 
 					
 					Address<textarea name="address" class="form-control" rows="5" required></textarea>
 					<br>

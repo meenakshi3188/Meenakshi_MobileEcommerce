@@ -26,7 +26,7 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public ModelAndView StartPage(){
-		//System.out.println("In Controller");
+		System.out.println("In Controller");
 		ModelAndView mv=new ModelAndView("index");
 		List<ProductBrand> lsts1 = brndSrv.showBrand();
 		mv.addObject("brandsLst1", lsts1);

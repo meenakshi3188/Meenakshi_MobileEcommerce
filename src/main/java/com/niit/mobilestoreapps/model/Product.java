@@ -13,7 +13,6 @@ import javax.persistence.Table;
 
 import org.springframework.web.multipart.MultipartFile;
 
-
 	@Entity
 	@Table(name="Product")
 	public class Product {
