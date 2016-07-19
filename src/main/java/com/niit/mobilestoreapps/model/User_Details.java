@@ -29,6 +29,10 @@ public class User_Details {
 	@Column(name="emailId")
 	private String emailId;
 	
+	@Column(name="username")
+	private String username;
+	
+	
 	@Column(name="password")
 	private String password;
 	
@@ -73,6 +77,13 @@ public class User_Details {
 
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
+	}
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {

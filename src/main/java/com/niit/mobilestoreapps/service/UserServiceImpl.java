@@ -1,5 +1,7 @@
 package com.niit.mobilestoreapps.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +30,12 @@ public class UserServiceImpl implements UserService{
 	public boolean isValidUser(int id, String password, boolean isAdmin) {
 		
 		return false;
+	}
+
+	@Transactional
+	public List<User_Details> getUsernameList() {
+		return uDao.getUsernameList();
+	
 	}
 
 }

@@ -1,5 +1,9 @@
 package com.niit.mobilestoreapps.controller;
 
+import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -7,28 +11,55 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.niit.mobilestoreapps.model.User_Details;
-import com.niit.mobilestoreapps.service.UserServiceImpl;
+import com.niit.mobilestoreapps.service.UserService;
+
 
 @Controller
 public class RegisterController {
 	
 	@Autowired
-	UserServiceImpl user_srv;
+	UserService user_srv;
 	
 	@RequestMapping(value = "/register")
 	public ModelAndView getLogin(){
 		System.out.println("In register controller");
 		return new ModelAndView("/register");
-	
 	}
 	
-	@RequestMapping(value = "/registerUser")
-	public ModelAndView registerUser(@ModelAttribute User_Details userDetails)
+	@ModelAttribute("register_user")
+	public User_Details get_modelAttribute()
+	{
+		//System.out.println("In register user1");
+		return new User_Details();
+	}
+
+	@RequestMapping(value="/registerUser",method=RequestMethod.POST)
+	public ModelAndView registerUser(@Valid @ModelAttribute("register_user") User_Details userDetails)
 	{
 		System.out.println("In register user");
+		String msg;
 		ModelAndView mv=new ModelAndView("index");
-		user_srv.saveOrUpdate(userDetails);
-		return mv;
+		
+		System.out.println(userDetails.getUsername());
+		List<User_Details> lst=user_srv.getUsernameList();
+		
+		for(User_Details u:lst)
+		{
+			if(!(u.getUsername().equals(userDetails.getUsername())))
+			{
+				user_srv.saveOrUpdate(userDetails);
+				msg="User Created Successfully";
+				mv.addObject("message", msg);		
+			}
+			else
+			{
+				msg="User Already Existed";
+				mv.addObject("message", msg);	
+			}
+			
+		}	
+		return mv;	
 	}
 }

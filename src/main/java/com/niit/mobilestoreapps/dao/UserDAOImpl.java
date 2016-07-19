@@ -1,5 +1,7 @@
 package com.niit.mobilestoreapps.dao;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,6 +30,15 @@ public class UserDAOImpl implements UserDAO {
 	public boolean isValidUser(int id, String password, boolean isAdmin) {
 		
 		return false;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User_Details> getUsernameList() {
+
+		return (List<User_Details>) sessionFactory.getCurrentSession().createCriteria
+				("from User_Details").list();
+		
 	}
 
 }

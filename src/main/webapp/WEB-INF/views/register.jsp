@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -69,7 +72,8 @@
 	<div class="container">
 		<div class="card card-container">
 			<h2>Register</h2>
-			<form  action="${pageContext.request.contextPath}/registerUser" method="post">
+			<form:form action="${pageContext.request.contextPath}/registerUser" method="POST" 
+			commandName="register_user" role="form">
 				First Name<input type="text"  class="form-control"
 					placeholder="First Name" name="firstname" value="" required autofocus> 
 					
@@ -82,13 +86,16 @@
 					Email Id<input type="text"  class="form-control"
 					placeholder="Email Id" value="" name="emailId" required autofocus> 
 					
+					Username<input type="text"  class="form-control"
+					placeholder="User Name" value="" name="username" required autofocus> 
+					
 					Password<input type="password"  class="form-control"
 					placeholder="Password" value="" name="password" required autofocus> 
 					
 					Address<textarea name="address" class="form-control" rows="5" required></textarea>
 					<br>
-				   <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-			</form>
+				   <input class="btn btn-lg btn-primary btn-block" type="submit" value="Register">
+			</form:form>
 
 		</div>
 	</div>

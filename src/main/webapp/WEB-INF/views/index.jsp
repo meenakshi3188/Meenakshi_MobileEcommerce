@@ -76,9 +76,7 @@
 </style>
 </head>
 <body>
-	<%!
-//ProductImpl prod_srv = new ProductImpl();
-%>
+
 	<br>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
@@ -195,6 +193,8 @@
 	<a href="product">Product</a>
 	<a href="supplier">Supplier</a>
 	<br>
+	<br>
+	<h2>${message}</h2>
 	<br>
 	<div class="row">
 		<div class="col-sm-2">
