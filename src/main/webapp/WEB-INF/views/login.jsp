@@ -1,3 +1,7 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -56,7 +60,7 @@
 							<li><a href="htc.jsp">HTC</a></li>
 							<li><a href="sony.jsp">Sony</a></li>
 							
-						</ul></li>						<li><a href="about.jsp">Brand</a></li>
+						</ul></li>						
 					<li><a href="service.jsp">Services</a></li>
 					<li><a href="contact.jsp">Contact Us</a></li>
 				</ul>
@@ -67,15 +71,18 @@
 			</div>
 		</div>
 	</div>
-	<br><br><br><br><br>
+	<br><br><br><br><br><br><br>
+<h2>${message} ${name}</h2>	
 <div class="container">
 		<div class="card card-container">
 			<h2>Login</h2>
-			<form class="form-signin" action="login" method="post">
-				User ID <input type="text"  class="form-control"
-					placeholder="User Id" required autofocus> Password<input
-					type="password"  class="form-control"
-					placeholder="Password" required>
+			<!-- <form class="form-signin" action="${pageContext.request.contextPath}/isValidUser" method="post">-->
+			
+			<form class="form-signin" action="<c:url value='j_spring_security_check'/>" method="POST">
+				User Name <input type="text"  class="form-control"
+					placeholder="User Name" name="j_username" required autofocus> 
+				Password<input type="password"  class="form-control"
+					placeholder="Password" name="j_password" required autofocus>
 
 				<button class="btn btn-lg btn-primary btn-block btn-signin"
 					type="submit">Sign in</button>

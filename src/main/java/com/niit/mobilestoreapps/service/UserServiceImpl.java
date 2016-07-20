@@ -27,9 +27,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Transactional
-	public boolean isValidUser(int id, String password, boolean isAdmin) {
+	public boolean isValidUser(String username, String password, boolean isAdmin) {
 		
-		return false;
+		return uDao.isValidUser(username, password, isAdmin);
 	}
 
 	@Transactional

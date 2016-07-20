@@ -2,10 +2,13 @@ package com.niit.mobilestoreapps.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.niit.mobilestoreapps.model.User;
 import com.niit.mobilestoreapps.model.User_Details;
 
 @Repository
@@ -27,9 +30,20 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean isValidUser(int id, String password, boolean isAdmin) {
+	public boolean isValidUser(String username, String password, boolean isAdmin) {
+		
+		String hql = "from User where username= '" + username + "' and " + " password ='" + password+"'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		
+		@SuppressWarnings("unchecked")
+		List<User> list = (List<User>) query.list();
+		
+		if (list != null && !list.isEmpty()) {
+			return true;
+		}
 		
 		return false;
+		
 	}
 
 	@SuppressWarnings("unchecked")

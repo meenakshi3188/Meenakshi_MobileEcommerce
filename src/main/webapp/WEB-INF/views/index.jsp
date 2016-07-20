@@ -139,7 +139,8 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="login">Login</a></li>
+					<li><a href="login">User Login</a></li>
+					<li><a href="adminLogin">Admin Login</a></li>
 					<li><a href="register">Register</a></li>
 				</ul>
 			</div>
@@ -205,15 +206,28 @@
 			</c:forEach>
 		</div>
 
-		<div class="col-sm-10">
+		<!-- <div class="col-sm-10">-->
+		<table class="table table-bordered" style="width: 66%;" align="center">
+			<tr style="background-color: #BDC3C7;">
+				<th>Product Image</th>
+				<th>Product Model</th>
+				<th>Product Name</th>
+				<th>Product Price</th>
+				<th>Add Cart</th>
+			</tr>
 			<c:forEach items="${prdLst}" var="prd">
-				<img src="${prd.product_image}" width="120px" height="150px"/>
-				${prd.product_model}
-				${prd.product_name}
-				Rs ${prd.product_price}
-				<button type="button" class="btn btn-primary btn-xs">Add Cart</button>
+				<tr>
+					<td><img src="${prd.product_image}" width="120px"
+						height="150px" /></td>
+					<td>${prd.product_model}</td>
+					<td>${prd.product_name}</td>
+					<td>Rs ${prd.product_price}</td>
+					<td><a href="<c:url value='/cart/${prd.product_id}' />">Add
+							To Cart</a></td>
+				</tr>
 			</c:forEach>
-		</div>
+		</table>
+		<!-- </div>-->
 
 	</div>
 

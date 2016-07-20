@@ -10,7 +10,7 @@ public interface UserDAO {
 
 	public void delete(int id);
 	
-	public boolean isValidUser(int id, String password, boolean isAdmin);
+	public boolean isValidUser(String username, String password, boolean isAdmin);
 	
 	public List<User_Details> getUsernameList();
 }
