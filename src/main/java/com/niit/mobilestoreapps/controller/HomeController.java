@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,6 +36,23 @@ public class HomeController {
 		return mv;
 		
 	}
+	@RequestMapping(value = "/contact")
+	public ModelAndView getContact(){
+		return new ModelAndView("/contact");
+		
+	}
+	@RequestMapping(value = "/about")
+	public ModelAndView getAbout(){
+		return new ModelAndView("/about");
+		
+	}
 	
-	
+	@RequestMapping(value="/brandWiseProduct/{id}")
+	public ModelAndView showAllProducts(@PathVariable("id") int id)
+	{
+		ModelAndView mv=new ModelAndView("brandWiseProduct");
+		List<Product> lst2=prod_srv.getProductByBrandId(id);
+		mv.addObject("prdLst", lst2);	
+		return mv;
+	}
 }

@@ -122,5 +122,12 @@ public class ProductController {
 		   mv.addObject("ProductLists", lsts);
 		   return mv;
 	  }
-	
+	@RequestMapping(value="/productDetail/{id}")
+	public ModelAndView showProductDetail(@PathVariable("id") int id)
+	{
+		ModelAndView mv=new ModelAndView("productDetail");
+		Product p =  prod_srv.getNameById(id);
+		mv.addObject("ProductDetail", p);
+		return mv;
+	}
 }

@@ -2,18 +2,11 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ page
-	import="java.util.List,org.springframework.beans.factory.annotation.Autowired,
-	com.niit.mobilestoreapps.dao.ProductImpl,com.niit.mobilestoreapps.service.ProductService,
-	com.niit.mobilestoreapps.model.Product"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<!-- <meta http-equiv="refresh" content="0; URL=./onLoad1">-->
-
 <title>Insert title here</title>
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
@@ -76,8 +69,7 @@
 </style>
 </head>
 <body>
-
-	<br>
+<br>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -87,7 +79,7 @@
 					<span class="icon-bar"></span>
 				</button>-->
 				<a href="index.jsp" class="navbar-brand"><img
-					src="resources/images/logo.jpg" style="width: 200px; height: 30px;"></a>
+					src="resources/images/logo.jpg" style="width: 200px; height: 40px;"></a>
 
 				<!--<div class="col-md-3 navbar-right">
 					<div class="navbar-form" role="search">
@@ -100,15 +92,15 @@
 						</div>
 					</div>
 				</div>-->
-				<!--<form class="navbar-form pull-right form-search">
+				<form class="navbar-form pull-right form-search">
 					<div class="input-append">
 						<input data-provide="typeahead" data-items="4" type="text"
 							class="span2 search-query">
 						<button class="btn">Search</button>
 					</div>
-				</form>-->
+				</form>
 			</div>
-			
+			<br> <br> <br>
 
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
@@ -128,7 +120,7 @@
 									<ul class="dropdown-menu">
 										<c:forEach items="${prdLst}" var="prd">
 											<c:if test="${id.brand_id==prd.brand_id}">
-												<li><a href="productDetail/${prd.product_id }">${prd.product_name}</a></li>
+												<li><a href="#">${prd.product_name}</a></li>
 											</c:if>
 										</c:forEach>
 									</ul></li>
@@ -146,7 +138,7 @@
 									   <li><a href="<c:url value="addBrand" />">Add Brands</a></li>
 								</c:if>
 								<li><a>Hello, ${pageContext.request.userPrincipal.name}</a></li>
-								<li><a href="<c:url value="/logout" />">Sign Out</a></li>
+									<li><a href="<c:url value="/j_spring_security_logout" />">Sign Out</a></li>
 								</c:if>
 					<!-- <li><a href="service.jsp">Services</a></li>-->
 					<li><a href="contact">Contact Us</a></li>
@@ -162,108 +154,17 @@
 			</div>
 		</div>
 	</div>
-
-	<div id="myCarousel" class="carousel slide">
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-
-		</ol>
-
-		<div class="carousel-inner">
-			<div class="item active">
-				<div class="fill">
-					<img src="resources/images/img1.jpg"
-						style="width: 100%; height: 500px;">
-				</div>
-			</div>
-			<div class="item">
-				<div class="fill">
-					<img src="resources/images/img2.jpg"
-						style="width: 100%; height: 500px;">
-				</div>
-			</div>
-
-			<div class="item">
-				<div class="fill">
-					<img src="resources/images/img3.jpg"
-						style="width: 100%; height: 500px;">
-				</div>
-			</div>
-
-		</div>
-
-		<a class="left carousel-control" href="#myCarousel" role="button"
-			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
-			aria-hidden="true"></span> <span class="sr-only">Previous</span>
-		</a> <a class="right carousel-control" href="#myCarousel" role="button"
-			data-slide="next"> <span
-			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-
+	<br><br><br><br>
+<div class="container">
+	<h1 style="font-color:#FF5733">About Us</h1>
+	<p>The about us page is another place where an ecommerce
+	 store owner can sell potential customers on both the idea or 
+	 brand of the business as well as specific products. An interesting 
+	 about us page helps to personalize a store and makes it stand out amongst other competitors. Store owners 
+	should be welcoming and inviting with the language used to write the page. 
+	Highlighting interesting parts of personal background as well as discussing 
+	what makes the products offered unique or of a high quality is important as well. 
+	As long as it fits into the store's brand identity, a humorous about us page is another engaging approach.</p>
 	</div>
-
-	<a href="BrandOpt">Show Brands</a>
-	<a href="addBrand">Add Brands</a>
-	<a href="product">Product</a>
-	<a href="supplier">Supplier</a>
-	<br>
-	<br>
-	<h2>${message}</h2>
-	<br>
-	<div class="row">
-		<div class="col-sm-2">
-			<a href="#">All Brands</a><br>
-			<c:forEach items="${brandsLst1}" var="id">
-				<a href="brandWiseProduct/${id.brand_id}">${id.brand_name}</a><br>
-			</c:forEach>
-		</div>
-		<table class="table table-bordered" style="width: 66%;" align="center">
-			<tr style="background-color: #BDC3C7;">
-				<th>Product Image</th>
-				<th>Product Model</th>
-				<th>Product Name</th>
-				<th>Product Price</th>
-				<th>Add Cart</th>
-			</tr>
-			<c:forEach items="${prdLst}" var="prd">
-				<tr>
-					<td><img src="${prd.product_image}" width="120px"
-						height="150px" /></td>
-					<td>${prd.product_model}</td>
-					<td>${prd.product_name}</td>
-					<td>Rs ${prd.product_price}</td>
-					<td><a href="<c:url value='/cart/${prd.product_id}' />">Add
-							To Cart</a></td>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
-
-	<!--  <div class="navbar navbar-inverse navbar-fixed-bottom">
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="index">Home</a></li>
-			<li><a href="about.jsp">About Us</a></li>
-			<li class="dropdown"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown" role="button" aria-haspopup="true"
-				aria-expanded="false">Brands <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="samsung.jsp">Samsung</a></li>
-					<li><a href="apple.jsp">Apple</a></li>
-					<li><a href="htc.jsp">HTC</a></li>
-					<li><a href="sony.jsp">Sony</a></li>
-
-				</ul></li>
-			<li><a href="service.jsp">Services</a></li>
-			<li><a href="contact.jsp">Contact Us</a></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="login">Login</a></li>
-			<li><a href="register">Register</a></li>
-		</ul>
-	</div>-->
-
 </body>
 </html>
