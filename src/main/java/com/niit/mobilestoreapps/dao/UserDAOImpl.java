@@ -49,9 +49,12 @@ public class UserDAOImpl implements UserDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User_Details> getUsernameList() {
+		return (List<User_Details>) sessionFactory.getCurrentSession().createCriteria("from User_Details").list();
+	}
 
-		return (List<User_Details>) sessionFactory.getCurrentSession().createCriteria
-				("from User_Details").list();
+	@Override
+	public void saveOrUpdate(User user) {
+		sessionFactory.getCurrentSession().saveOrUpdate(user);
 		
 	}
 

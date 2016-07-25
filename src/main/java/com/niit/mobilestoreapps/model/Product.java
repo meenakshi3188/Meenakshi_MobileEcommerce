@@ -22,6 +22,24 @@ import org.springframework.web.multipart.MultipartFile;
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private int product_id;
 		
+		public Product(int product_id, int brand_id, int supp_id, String product_name, String product_description1,
+				String product_description2, String product_model, double product_price, double product_discount,
+				boolean product_flag, String product_image, MultipartFile prod_file) {
+			
+			this.product_id = product_id;
+			this.brand_id = brand_id;
+			this.supp_id = supp_id;
+			this.product_name = product_name;
+			this.product_description1 = product_description1;
+			this.product_description2 = product_description2;
+			this.product_model = product_model;
+			this.product_price = product_price;
+			this.product_discount = product_discount;
+			this.product_flag = product_flag;
+			this.product_image = product_image;
+			this.prod_file = prod_file;
+		}
+
 		@Column(name="brand_id")
 		private int brand_id;
 		

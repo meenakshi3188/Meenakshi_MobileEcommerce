@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.mobilestoreapps.model.Product;
@@ -22,9 +22,6 @@ import com.niit.mobilestoreapps.model.Supplier;
 import com.niit.mobilestoreapps.service.BrandService;
 import com.niit.mobilestoreapps.service.ProductService;
 import com.niit.mobilestoreapps.service.SupplierService;
-
-
-
 
 @Controller
 public class ProductController {
@@ -122,8 +119,8 @@ public class ProductController {
 		   mv.addObject("ProductLists", lsts);
 		   return mv;
 	  }
-	@RequestMapping(value="/productDetail/{id}")
-	public ModelAndView showProductDetail(@PathVariable("id") int id)
+	@RequestMapping(value="/productDetail")
+	public ModelAndView showProductDetail(@RequestParam("id") int id)
 	{
 		ModelAndView mv=new ModelAndView("productDetail");
 		Product p =  prod_srv.getNameById(id);

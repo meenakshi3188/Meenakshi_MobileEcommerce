@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.mobilestoreapps.dao.UserDAO;
+import com.niit.mobilestoreapps.model.User;
 import com.niit.mobilestoreapps.model.User_Details;
 
 @Service
@@ -36,6 +37,12 @@ public class UserServiceImpl implements UserService{
 	public List<User_Details> getUsernameList() {
 		return uDao.getUsernameList();
 	
+	}
+
+	@Transactional
+	public void saveOrUpdate(User user) {
+		uDao.saveOrUpdate(user);
+		
 	}
 
 }

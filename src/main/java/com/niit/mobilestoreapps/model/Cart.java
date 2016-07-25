@@ -17,8 +17,7 @@ public class Cart {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@Transient
-	private int total;
+	
 	
 	public int getId() {
 		return id;
@@ -26,22 +25,17 @@ public class Cart {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getTotal() {
-		return total;
-	}
-	public void setTotal(int total) {
-		this.total = total;
-	}
+	
 	public String getProductName() {
 		return productName;
 	}
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	public int getQuantity() {
@@ -50,22 +44,10 @@ public class Cart {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public char getStatus() {
-		return status;
-	}
-	public void setStatus(char status) {
-		this.status = status;
-	}
-	public String getUserID() {
-		return userID;
-	}
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
+	
 	private String productName;
-	private int price;
+	private double price;
 	private int quantity;
-	private char status;
-	private String userID;
+	
 
 }

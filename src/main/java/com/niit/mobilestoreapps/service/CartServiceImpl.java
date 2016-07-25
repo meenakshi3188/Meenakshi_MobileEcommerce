@@ -2,35 +2,44 @@ package com.niit.mobilestoreapps.service;
 
 import java.util.List;
 
-import com.niit.mobilestoreapps.model.Cart;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.niit.mobilestoreapps.dao.CartDAO;
+import com.niit.mobilestoreapps.model.Cart;
+@Service
 public class CartServiceImpl implements CartService{
 
-	@Override
+	@Autowired
+	CartDAO cdao;
+	
+	@Transactional
 	public List<Cart> list() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	@Transactional
 	public Cart get(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void saveOrUpdate(Cart Cart) {
-		// TODO Auto-generated method stub
+	@Transactional
+	public void saveOrUpdate(Cart cart) {
+		System.out.println("in service" + cart.getProductName());
+		cdao.saveOrUpdate(cart);
 		
 	}
 
-	@Override
+	@Transactional
 	public String delete(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	@Transactional
 	public int getTotalAmount(String id) {
 		// TODO Auto-generated method stub
 		return 0;

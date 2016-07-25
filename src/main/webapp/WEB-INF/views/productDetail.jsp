@@ -8,18 +8,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link href="resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="resources/css/style.css" rel="stylesheet">
 
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
+<br><br>
 	<div class="span9 center margin-bottom">
 		<h3>Product Details</h3>
 	</div>
@@ -42,6 +35,7 @@
 						<strong>Price: Rs. ${ProductDetail.product_price}</strong> <br>
 						<br>
 					</h2>
+					<a href="cart?id=${ProductDetail.product_id}">Add To Cart</a>
 				</div>
 			</div>
 		</div>

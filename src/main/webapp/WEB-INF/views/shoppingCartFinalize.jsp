@@ -18,59 +18,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<style>
-.bg-4 { 
-    background-color: #2f2f2f;
-    color: #ffffff;
-}
-.dropdown-submenu {
-	position: relative;
-}
-
-.dropdown-submenu>.dropdown-menu {
-	top: 0;
-	left: 100%;
-	margin-top: -6px;
-	margin-left: -1px;
-	-webkit-border-radius: 0 6px 6px 6px;
-	-moz-border-radius: 0 6px 6px;
-	border-radius: 0 6px 6px 6px;
-}
-
-.dropdown-submenu:hover>.dropdown-menu {
-	display: block;
-}
-
-.dropdown-submenu>a:after {
-	display: block;
-	content: " ";
-	float: right;
-	width: 0;
-	height: 0;
-	border-color: transparent;
-	border-style: solid;
-	border-width: 5px 0 5px 5px;
-	border-left-color: #ccc;
-	margin-top: 5px;
-	margin-right: -10px;
-}
-
-/*.dropdown-submenu:hover>a:after {
-    border-left-color: #fff;
-}*/
-
-/*.dropdown-submenu.pull-left {
-    float: none;
-}*/
-.dropdown-submenu.pull-left>.dropdown-menu {
-	left: -100%;
-	margin-left: 10px;
-	-webkit-border-radius: 6px 0 6px 6px;
-	-moz-border-radius: 6px 0 6px 6px;
-	border-radius: 6px 0 6px 6px;
-}
-</style>
+	
 </head>
 <body>
 <br>
@@ -96,9 +44,15 @@
 						</div>
 					</div>
 				</div>-->
-				
+				<!--<form class="navbar-form pull-right form-search">
+					<div class="input-append">
+						<input data-provide="typeahead" data-items="4" type="text"
+							class="span2 search-query">
+						<button class="btn">Search</button>
+					</div>
+				</form>-->
 			</div>
-		
+
 
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
@@ -118,55 +72,63 @@
 									<ul class="dropdown-menu">
 										<c:forEach items="${prdLst}" var="prd">
 											<c:if test="${id.brand_id==prd.brand_id}">
-												<li><a href="#">${prd.product_name}</a></li>
+												<li><a href="productDetail/${prd.product_id }">${prd.product_name}</a></li>
 											</c:if>
 										</c:forEach>
 									</ul></li>
 							</c:forEach>
-						</ul>
-						</li>
-						 <c:if test="${pageContext.request.userPrincipal.name != null}">
-								<c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
-									<li><a href="#">Cart</a></li>
-								</c:if>
-								<c:if test="${pageContext.request.userPrincipal.name  == 'admin'}">
-									 <li><a href="<c:url value="product" />">Products</a></li>
-									 <li><a href="<c:url value="supplier" />">Supplier</a></li>
-									  <li><a href="<c:url value="BrandOpt" />">Show Brands</a></li>
-									   <li><a href="<c:url value="addBrand" />">Add Brands</a></li>
-								</c:if>
-								<li><a>Hello, ${pageContext.request.userPrincipal.name}</a></li>
-									<li><a href="<c:url value="/j_spring_security_logout" />">Sign Out</a></li>
-								</c:if>
+						</ul></li>
+					<c:if test="${pageContext.request.userPrincipal.name != null}">
+						<c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+							<li><a href="#">Cart</a></li>
+						</c:if>
+						<c:if test="${pageContext.request.userPrincipal.name  == 'admin'}">
+							<li><a href="<c:url value="product" />">Products</a></li>
+							<li><a href="<c:url value="supplier" />">Supplier</a></li>
+							<li><a href="<c:url value="BrandOpt" />">Show Brands</a></li>
+							<li><a href="<c:url value="addBrand" />">Add Brands</a></li>
+						</c:if>
+						<li><a>Hello, ${pageContext.request.userPrincipal.name} </a></li>
+						<li><a href="<c:url value="/logout" />">Sign Out</a></li>
+					</c:if>
 					<!-- <li><a href="service.jsp">Services</a></li>-->
 					<li><a href="contact">Contact Us</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-				 <c:if test="${pageContext.request.userPrincipal.name  == null}">
-					<li><a href="login">User Login</a></li>
-					<li><a href="adminLogin">Admin Login</a></li>
-					<li><a href="register">Register</a></li>
-				</c:if>
+					<c:if test="${pageContext.request.userPrincipal.name  == null}">
+						<li><a href="login">User Login</a></li>
+						<li><a href="login">Admin Login</a></li>
+						<li><a href="register">Register</a></li>
+					</c:if>
 				</ul>
+				
+				<div class="btn-group">
+				
+										<button type="button" data-toggle="dropdown"
+											class="btn btn-primary dropdown-toggle">
+											View Cart <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<%
+											HttpSession us = request.getSession();
+												us = request.getSession();
+												if(us.getAttribute("total") !=null)
+													out.println("<li style='font-weight: bold; font-size: 14px;'><a href='viewCart'>Total :" + us.getAttribute("total") + "</a></li>");
+											%>
+										</ul>
+									</div>
+				
+				
 			</div>
 		</div>
 	</div>
 	<br><br><br><br>
-<div class="container">
-	<h1 style="font-color:#FF5733">About Us</h1>
-	<p>The about us page is another place where an ecommerce
-	 store owner can sell potential customers on both the idea or 
-	 brand of the business as well as specific products. An interesting 
-	 about us page helps to personalize a store and makes it stand out amongst other competitors. Store owners 
-	should be welcoming and inviting with the language used to write the page. 
-	Highlighting interesting parts of personal background as well as discussing 
-	what makes the products offered unique or of a high quality is important as well. 
-	As long as it fits into the store's brand identity, a humorous about us page is another engaging approach.</p>
-	</div>
-	
-	<footer class="container-fluid bg-4 text-center">
-  <p>@2016 Copyright</p> 
-</footer>
+ <div class="container">
+        <h2>Thank you for Order</h2>
+        Your order number is: ${lastOrderedCart.orderNum} <br/>
+        <h2>We will be delivering your order next 3-4 working days at your address</h2><br/>
+        <h2>Thanks....</h2>
+    </div>
 </body>
 </html>

@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+
 @Entity
 @Table(name="User_Details")
 public class User_Details {
@@ -18,23 +20,28 @@ public class User_Details {
 	private int user_id;
 	
 	@Column(name="firstname")
+	
 	private String firstname;
 	
 	@Column(name="lastname")
+	
 	private String lastname;
 	
 	@Column(name="contactNo")
 	private int contactNo;
 	
+	
 	@Column(name="emailId")
 	private String emailId;
 	
+
 	@Column(name="username")
 	private String username;
 	
-	
+
 	@Column(name="password")
 	private String password;
+	
 	
 	@Column(name="address")
 	private String address;

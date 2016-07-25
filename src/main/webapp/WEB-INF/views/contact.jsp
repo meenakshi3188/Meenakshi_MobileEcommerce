@@ -19,54 +19,7 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<style>
-.dropdown-submenu {
-	position: relative;
-}
 
-.dropdown-submenu>.dropdown-menu {
-	top: 0;
-	left: 100%;
-	margin-top: -6px;
-	margin-left: -1px;
-	-webkit-border-radius: 0 6px 6px 6px;
-	-moz-border-radius: 0 6px 6px;
-	border-radius: 0 6px 6px 6px;
-}
-
-.dropdown-submenu:hover>.dropdown-menu {
-	display: block;
-}
-
-.dropdown-submenu>a:after {
-	display: block;
-	content: " ";
-	float: right;
-	width: 0;
-	height: 0;
-	border-color: transparent;
-	border-style: solid;
-	border-width: 5px 0 5px 5px;
-	border-left-color: #ccc;
-	margin-top: 5px;
-	margin-right: -10px;
-}
-
-/*.dropdown-submenu:hover>a:after {
-    border-left-color: #fff;
-}*/
-
-/*.dropdown-submenu.pull-left {
-    float: none;
-}*/
-.dropdown-submenu.pull-left>.dropdown-menu {
-	left: -100%;
-	margin-left: 10px;
-	-webkit-border-radius: 6px 0 6px 6px;
-	-moz-border-radius: 6px 0 6px 6px;
-	border-radius: 6px 0 6px 6px;
-}
-</style>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -78,7 +31,7 @@
 					<span class="icon-bar"></span>
 				</button>-->
 				<a href="index.jsp" class="navbar-brand"><img
-					src="resources/images/logo.jpg" style="width: 200px; height: 40px;"></a>
+					src="resources/images/logo.jpg" style="width: 200px; height: 30px;"></a>
 
 				<!--<div class="col-md-3 navbar-right">
 					<div class="navbar-form" role="search">
@@ -91,19 +44,13 @@
 						</div>
 					</div>
 				</div>-->
-				<form class="navbar-form pull-right form-search">
-					<div class="input-append">
-						<input data-provide="typeahead" data-items="4" type="text"
-							class="span2 search-query">
-						<button class="btn">Search</button>
-					</div>
-				</form>
+				
 			</div>
-			<br> <br> <br>
+		
 
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="index">Home</a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/">Home</a></li>
 					<li><a href="about.jsp">About Us</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -180,5 +127,8 @@
         </form>
 </div>
 </div>
+<footer class="container-fluid bg-4 text-center">
+  <p>@2016 Copyright</p> 
+</footer>
 </body>
 </html>

@@ -27,7 +27,7 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public ModelAndView StartPage(){
-		System.out.println("In Controller");
+		
 		ModelAndView mv=new ModelAndView("index");
 		List<ProductBrand> lsts1 = brndSrv.showBrand();
 		mv.addObject("brandsLst1", lsts1);
@@ -36,6 +36,9 @@ public class HomeController {
 		return mv;
 		
 	}
+	
+	
+	
 	@RequestMapping(value = "/contact")
 	public ModelAndView getContact(){
 		return new ModelAndView("/contact");

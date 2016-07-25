@@ -28,8 +28,6 @@ public class LoginController {
 	@Autowired
 	ProductService prod_srv;
 
-	
-
 	/*
 	 * @RequestMapping(value = "/login") 
 	 * public ModelAndView getLogin(){
@@ -43,8 +41,16 @@ public class LoginController {
 	public ModelAndView login(@RequestParam(value = "authfailed", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout, Model model, HttpServletRequest request)
 	{
-		System.out.println(error);
+		//System.out.println(error);
+		
 		ModelAndView view;
+		
+		/*ModelAndView view=new ModelAndView("/login");
+		List<ProductBrand> lsts2 = brndSrv.showBrand();
+		view.addObject("brandsLst1", lsts2);
+		List<Product> lst3=prod_srv.showProduct();
+		view.addObject("prdLst", lst3);
+		*/
 		if (error != null) {
 			model.addAttribute("error", "Invalid username and password");
 			view = new ModelAndView("login");
